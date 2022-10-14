@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 
-function Modal({ currentPhoto, setShowModal }) {
+function Modal({ currentPhoto, onClose }) {
   const { name, category, description, index } = currentPhoto;
   return (
-    <div className="modalBackdrop">
+    <div onClick={onClose} className="modalBackdrop">
       <div className="modalContainer">
         <h3 className="modalTitle">{name}</h3>
         <img
@@ -11,7 +11,7 @@ function Modal({ currentPhoto, setShowModal }) {
           alt="current category"
         />
         <p>{description}</p>
-        <button onClick={() => setShowModal(false)} type="button">
+        <button onClick={onClose} type="button">
           Close this modal
         </button>
       </div>
